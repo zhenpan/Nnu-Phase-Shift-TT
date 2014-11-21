@@ -49,15 +49,14 @@ As, ns , Tau, H0, omgb, omgc, nnu3, Yp = np.loadtxt('params', usecols= (3,))
 ell3, tt3, ths3, thd3, ld3 = analyse(As, ns, Tau, H0, omgb, omgc, nnu3, Yp)
 	
 nnu_fid = 3
-nell  = 200
 
 tt1  = [tt1[i]/1000. for i in range(len(ell1))] #amp norm
 tt2  = [tt2[i]/1000. for i in range(len(ell2))]
 tt3  = [tt3[i]/1000. for i in range(len(ell3))]
 
-norm1 = tt2[nell]/tt1[nell]
+norm1 = tt2[1150]/tt1[1180]
 norm2 = 1.
-norm3 = tt2[nell]/tt3[nell]
+norm3 = tt2[1150]/tt3[1140]
 tt1n = [tt1[i]*norm1 for i in range(len(ell1))]
 tt2n = [tt2[i]*norm2 for i in range(len(ell2))]
 tt3n = [tt3[i]*norm3 for i in range(len(ell3))]
@@ -109,7 +108,7 @@ plt.xlabel(r'$\ell$',fontsize=20)
 f.text(0.05,0.5, r'$\exp(2*(\ell/\ell_D^{\rm fid})^{1.18})\times\ell(\ell+1)C^{TT}_{\ell}/(2\pi) \ [10^3 \mu k^2]$',fontsize=15, ha='center', va='center', rotation='vertical')
 f.text(0.5, 0.7, r'$\omega_b, \ z_{\rm eq}, \ \theta_s \ {\rm fixed}$ ', ha='center', va='center')
 f.text(0.5, 0.44, r'$\omega_b, \ z_{\rm eq}, \ \theta_s, \ \theta_D \ {\rm fixed}$ ', ha='center', va='center')
-f.text(0.5, 0.18,  r'$C_{200}(N_{\rm eff}) = C_{200}^{\rm best}$', ha='center', va='center')
+f.text(0.5, 0.18,  r'Normalised at fourth peak', ha='center', va='center', fontsize = 10)
 f.text(0.5, 0.14, r'$\omega_b, \ z_{\rm eq}, \ \theta_s, \ \theta_D \ {\rm fixed}$ ', ha='center', va='center')
 plt.savefig('fig1.pdf')
 plt.show()
