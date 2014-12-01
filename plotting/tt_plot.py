@@ -84,6 +84,16 @@ X, Y, Yerr = np.loadtxt('planck.dat', delimiter=',', usecols=(0,3,4)).T
 Y = [math.exp(2*(X[i]/1267.1)**1.18)/1000*Y[i] for i in range(X.size)]
 Yerr = [math.exp(2*(X[i]/1267.1)**1.18)/1000*Yerr[i] for i in range(X.size)]
 
+data1 = np.column_stack((ell_bbn1, tt_bbn1, ell_bbn2, tt_bbn2, ell_bbn3, tt_bbn3))
+data2 = np.column_stack((ell1, tt1, ell2, tt2, ell3, tt3))
+data3 = np.column_stack((ell1, tt1n, ell2, tt2n, ell3, tt3n))
+data4 = np.column_stack((X,Y,Yerr))
+
+np.savetxt('data1', data1)
+np.savetxt('data2', data2)
+np.savetxt('data3', data3)
+np.savetxt('data4', data4)
+
 
 plt.figure(0)
 f, (c,a, b) = plt.subplots(3,sharex=True, sharey=True, figsize=(12,6))
